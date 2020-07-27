@@ -8,6 +8,7 @@ public class LegoPieceMovement: MonoBehaviour
     private Vector3 endPosition;
     public float speed;
     public float distance;
+    public bool highlight = true;
     public enum Direction { X, Y, Z}
     public Direction direction;
 
@@ -17,6 +18,10 @@ public class LegoPieceMovement: MonoBehaviour
     void Start()
     {
         SetMovementPositions(direction);
+        if (highlight)
+        {
+            SetHighlight();
+        }
 
     }
 
@@ -40,6 +45,24 @@ public class LegoPieceMovement: MonoBehaviour
         }
 
         transform.localPosition = startPosition;
+    }
+
+    void SetHighlight()
+    {
+        // Create object to display light
+        GameObject lightObject = new GameObject("Highlight at " + endPosition);
+
+        // Make it a child of the parent's parent object (the AR object)
+        lightObject.transform.SetParent(transform.parent.transform);
+
+        // Add light to the object
+        Light lightComponent = lightObject.AddComponent<Light>();
+
+        // Set color to white
+        lightComponent.color = Color.white;
+
+        // Set the local position to the local end position of the moving lego piece
+        lightObject.transform.localPosition = endPosition;
     }
 
     // Update is called once per frame
