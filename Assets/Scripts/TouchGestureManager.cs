@@ -5,9 +5,13 @@ public class TouchGestureManager : MonoBehaviour
 {
     [SerializeField]
     private Camera arCamera;
+    [SerializeField]
+    private float movementSensitivity = 0.001f;
+    [SerializeField]
+    private float rotateSensitivity = 0.1f;
 
     private GameObject arObject;
-    private float movementSensitivity = 0.001f;
+
 
     float initialFingersDistance;
     Vector3 initialArObjectScale;
@@ -69,6 +73,9 @@ public class TouchGestureManager : MonoBehaviour
                         // Debug.Log("Hit Object");
                         //  Debug.Log("Position = " + arObject.transform.position);
                     }
+                } else
+                {
+                    arObject = null;
                 }
             }
 
@@ -77,18 +84,34 @@ public class TouchGestureManager : MonoBehaviour
                 if (arObject != null)
                 {
                     Vector2 touchMovement = (touch.deltaPosition) * movementSensitivity;
-                    Debug.Log("Delta Touch Position = " + touchMovement);
-                    arObject.transform.position = new Vector3(
-                                arObject.transform.position.x + touchMovement.x,
-                                arObject.transform.position.y + touchMovement.y,
-                               arObject.transform.position.z);
-                    Debug.Log("New Position = " + arObject.transform.position);
+
+                    //For Transforming position
+                    //Debug.Log("Delta Touch Position = " + touchMovement);
+                    //arObject.transform.position = new Vector3(
+                    //            arObject.transform.position.x + touchMovement.x,
+                    //            arObject.transform.position.y + touchMovement.y,
+                    //           arObject.transform.position.z);
+                    //Debug.Log("New Position = " + arObject.transform.position);
+                    Debug.Log("Rotating");
+                    Vector2 touchRotate = (touch.deltaPosition);
+
+                    //Check if the object is upside down or not
+                    if(Vector3.Dot(arObject.transform.up, Vector3.up) >= 0)
+                    {
+                        arObject.transform.Rotate(arObject.transform.up, -Vector3.Dot(touchRotate, Camera.main.transform.right) * rotateSensitivity, Space.World);
+                    } else
+                    {
+                        arObject.transform.Rotate(arObject.transform.up, Vector3.Dot(touchRotate, Camera.main.transform.right) * rotateSensitivity, Space.World);
+                    }
+           
+                    arObject.transform.Rotate(Camera.main.transform.right, Vector3.Dot(touchRotate, Camera.main.transform.up) * rotateSensitivity, Space.World);
+                    //For Rotating Position
                 }
             }
 
             if (touch.phase == TouchPhase.Stationary)
             {
-                arObject = null;
+           
             }
         }
     }
