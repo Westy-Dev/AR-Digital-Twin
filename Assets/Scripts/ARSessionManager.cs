@@ -14,6 +14,7 @@ public class ARSessionManager : MonoBehaviour
     //The position to instantiate the models in the world
     public Vector3 AssemblyPosition;
     private Vector3 assemblyInitialScale;
+    private Quaternion assemblyInitialRotation;
 
     private int currentInstructionIndex;
     private int lastInstructionIndex;
@@ -38,6 +39,7 @@ public class ARSessionManager : MonoBehaviour
             //-0.048f, -0.038f, 0.287f
             currentModel.transform.position = AssemblyPosition;
             assemblyInitialScale = currentModel.transform.localScale;
+            assemblyInitialRotation = currentModel.transform.rotation;
         } else
         {
             Debug.LogError("Cannot Load Instructions - Instructions Not Found in Folder: " + InstructionFolderName,gameObject);
@@ -50,12 +52,8 @@ public class ARSessionManager : MonoBehaviour
         if (currentInstructionIndex != lastInstructionIndex)
         {
             currentInstructionIndex++;
-            Destroy(currentModel);
-
-            currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
-            currentModel.transform.position = AssemblyPosition;
+            loadNewModel(currentInstructionIndex);
         }
-
     }
 
     public void loadPreviousInstruction()
@@ -63,10 +61,7 @@ public class ARSessionManager : MonoBehaviour
         if (currentInstructionIndex != 0)
         {
             currentInstructionIndex--;
-            Destroy(currentModel);
-
-            currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
-            currentModel.transform.position = AssemblyPosition;
+            loadNewModel(currentInstructionIndex);
         }
     }
 
@@ -74,5 +69,16 @@ public class ARSessionManager : MonoBehaviour
     {
         currentModel.transform.localPosition = AssemblyPosition;
         currentModel.transform.localScale = assemblyInitialScale;
+        currentModel.transform.rotation = assemblyInitialRotation;
+    }
+
+    private void loadNewModel(int currentInstructionIndex)
+    {
+        Transform currentTransform = currentModel.transform;
+        Destroy(currentModel);
+        currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
+        currentModel.transform.position = currentTransform.position;
+        currentModel.transform.localScale = currentTransform.localScale;
+        currentModel.transform.rotation = currentTransform.rotation;
     }
 }
