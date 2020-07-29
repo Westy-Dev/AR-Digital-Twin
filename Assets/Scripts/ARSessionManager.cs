@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,9 @@ using UnityEngine;
 public class ARSessionManager : MonoBehaviour
 {
     //Provide in order of build
-    [Tooltip("Provide AR Models for Instructions")]
-    public string[] ModelsForInstructions;
+    [Tooltip("Provide Folder Name With Model Instructions")]
+    public string InstructionFolderName;
+    private GameObject[] modelInstructions;
     //The position to instantiate the models in the world
     public Vector3 AssemblyPosition;
     private Vector3 assemblyInitialScale;
@@ -21,13 +23,26 @@ public class ARSessionManager : MonoBehaviour
     {
 
         currentInstructionIndex = 0;
-        lastInstructionIndex = ModelsForInstructions.Length - 1;
+
         // Instantiates a Prefab located in any Resources
         // folder in your project's Assets folder with the name provided in the inspector
-        currentModel = Instantiate(Resources.Load(ModelsForInstructions[currentInstructionIndex], typeof(GameObject))) as GameObject;
-        //-0.048f, -0.038f, 0.287f
-        currentModel.transform.position = AssemblyPosition;
-        assemblyInitialScale = currentModel.transform.localScale;
+        modelInstructions = Resources.LoadAll<GameObject>(InstructionFolderName);
+
+        Array.Sort(modelInstructions, delegate (GameObject x, GameObject y) { return int.Parse(x.name).CompareTo(int.Parse(y.name)); });
+
+        if (modelInstructions !=null || modelInstructions.Length > 0)
+        {
+            lastInstructionIndex = modelInstructions.Length - 1;
+
+            currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
+            //-0.048f, -0.038f, 0.287f
+            currentModel.transform.position = AssemblyPosition;
+            assemblyInitialScale = currentModel.transform.localScale;
+        } else
+        {
+            Debug.LogError("Cannot Load Instructions - Instructions Not Found in Folder: " + InstructionFolderName,gameObject);
+        }
+
     }
 
     public void loadNextInstruction()
@@ -37,7 +52,7 @@ public class ARSessionManager : MonoBehaviour
             currentInstructionIndex++;
             Destroy(currentModel);
 
-            currentModel = Instantiate(Resources.Load(ModelsForInstructions[currentInstructionIndex], typeof(GameObject))) as GameObject;
+            currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
             currentModel.transform.position = AssemblyPosition;
         }
 
@@ -50,7 +65,7 @@ public class ARSessionManager : MonoBehaviour
             currentInstructionIndex--;
             Destroy(currentModel);
 
-            currentModel = Instantiate(Resources.Load(ModelsForInstructions[currentInstructionIndex], typeof(GameObject))) as GameObject;
+            currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
             currentModel.transform.position = AssemblyPosition;
         }
     }

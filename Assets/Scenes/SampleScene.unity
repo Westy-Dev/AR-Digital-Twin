@@ -941,9 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ebcc0c7b2a8be479e84b692630c85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModelsForInstructions:
-  - SportsCar31100_0
-  - SportsCar31100_1
+  InstructionFolderName: Instructions
   AssemblyPosition: {x: -0.048, y: -0.038, z: 0.287}
 --- !u!1 &1712608718
 GameObject:
@@ -975,8 +973,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arCamera: {fileID: 770401441}
-  movementSensitivity: 0.001
+  movementSensitivity: 0.0001
   rotateSensitivity: 0.1
+  timeHoldingThreshold: 0.3
 --- !u!4 &1712608720
 Transform:
   m_ObjectHideFlags: 0

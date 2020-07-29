@@ -70,8 +70,8 @@ public class LegoPieceMovement: MonoBehaviour
     {    
         if (transform.localPosition != endPosition)
         {
-            percentageOfMovementElapsed += Time.deltaTime / speed;
-            transform.localPosition = Vector3.Lerp(startPosition, endPosition, percentageOfMovementElapsed);
+            percentageOfMovementElapsed += Time.deltaTime;
+            transform.localPosition = Vector3.Lerp(startPosition, endPosition, percentageOfMovementElapsed * speed);
         } else
         {
             if (!resetting)

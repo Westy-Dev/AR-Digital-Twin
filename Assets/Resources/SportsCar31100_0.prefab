@@ -10033,7 +10033,7 @@ GameObject:
   - component: {fileID: 8658649212901167704}
   - component: {fileID: 3615901452049678432}
   m_Layer: 0
-  m_Name: SportsCar31100_0 1
+  m_Name: SportsCar31100_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
