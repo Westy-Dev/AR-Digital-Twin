@@ -148,4 +148,14 @@ public class TouchGestureManager : MonoBehaviour
 
         }
     }
+
+    private void moveObject()
+    {
+
+    }
+
+    private void rotateObject()
+    {
+
+    }
 }
