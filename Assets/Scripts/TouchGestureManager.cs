@@ -66,7 +66,7 @@ public class TouchGestureManager : MonoBehaviour
 
                 if(timeHolding >= timeHoldingThreshold && arObject != null && !holding)
                 {
-                        Vibration.Vibrate(5);
+                        Vibration.Vibrate(100);
                         holding = true;
                 }
             }
