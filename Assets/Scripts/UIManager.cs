@@ -8,8 +8,13 @@ public class UIManager : MonoBehaviour
     private ARSessionManager arSessionManager;
 
     [SerializeField]
-    private GameObject DebugCanvas;
+    private GameObject debugCanvas;
+
+    [SerializeField]
+    private GameObject instructionBackground;
+
     private bool debug = false;
+    private bool showInstructionBackground = false;
     public void loadNextInstruction()
     {
         arSessionManager.loadNextInstruction();
@@ -24,7 +29,14 @@ public class UIManager : MonoBehaviour
     {
         debug = !debug;
 
-        DebugCanvas.SetActive(debug);
+        debugCanvas.SetActive(debug);
+    }
+
+    public void toggleInstructionBackground()
+    {
+        showInstructionBackground = !showInstructionBackground;
+
+        instructionBackground.SetActive(showInstructionBackground);
     }
 
     public void resetPosition()

@@ -49,20 +49,12 @@ public class InstructionPieceMovement: MonoBehaviour
 
     void SetHighlight()
     {
-        // Create object to display light
-        GameObject lightObject = new GameObject("Highlight at " + endPosition);
-
+        GameObject highlight = Instantiate(Resources.Load("Highlight")) as GameObject;
         // Make it a child of the parent's parent object (the AR object)
-        lightObject.transform.SetParent(transform.parent.transform);
-
-        // Add light to the object
-        Light lightComponent = lightObject.AddComponent<Light>();
-
-        // Set color to white
-        lightComponent.color = Color.white;
+        highlight.transform.SetParent(transform.parent.transform);
 
         // Set the local position to the local end position of the moving lego piece
-        lightObject.transform.localPosition = endPosition;
+        highlight.transform.localPosition = endPosition;
     }
 
     // Update is called once per frame

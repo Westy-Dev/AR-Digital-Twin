@@ -631,7 +631,7 @@ PrefabInstance:
     - target: {fileID: 8314316962620557538, guid: ee8f208d1208ba54981862c2ca748da0,
         type: 3}
       propertyPath: m_Name
-      value: SportsCar31100_0 Variant
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8406077967018770654, guid: ee8f208d1208ba54981862c2ca748da0,
         type: 3}
@@ -738,7 +738,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 128062620772862888, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 7510055528917014318, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 6661806538381960282, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 8065037758800897856, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 4144087474059919630, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 5375803087221163162, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 8659575009856889395, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 4776432214135845164, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 8134248234289063093, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 2289422818167255556, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 5757960107105436027, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 2081752618321500246, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 7533694659078724371, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
+    - {fileID: 1587648883719133123, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ee8f208d1208ba54981862c2ca748da0, type: 3}
 --- !u!1 &5678922042056171450 stripped
 GameObject:
