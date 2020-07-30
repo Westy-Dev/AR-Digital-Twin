@@ -18,7 +18,7 @@ public class InstructionPieceMovement: MonoBehaviour
     void Start()
     {
         SetMovementPositions(direction);
-        if (highlight)
+        if (false)
         {
             SetHighlight();
         }
