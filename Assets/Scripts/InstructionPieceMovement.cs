@@ -6,9 +6,15 @@ public class InstructionPieceMovement: MonoBehaviour
 {
     private Vector3 startPosition;
     private Vector3 endPosition;
-    public float speed;
-    public float distance;
-    public bool highlight = true;
+
+    [SerializeField]
+    private float speed = 1.2f;
+
+    [SerializeField]
+    private float distance = 0.5f;
+
+    [SerializeField]
+    private bool highlight = true;
     public enum Direction { X, Y, Z}
     public Direction direction;
 
