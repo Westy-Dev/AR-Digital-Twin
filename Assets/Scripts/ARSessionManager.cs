@@ -19,6 +19,9 @@ public class ARSessionManager : MonoBehaviour
     private int currentInstructionIndex;
     private int lastInstructionIndex;
     private GameObject currentModel;
+
+    [SerializeField]
+    private UIManager uiManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,9 @@ public class ARSessionManager : MonoBehaviour
             currentModel.transform.position = AssemblyPosition;
             assemblyInitialScale = currentModel.transform.localScale;
             assemblyInitialRotation = currentModel.transform.rotation;
+
+            int numberOfMovingPartsForInstruction = getNumberOfMovingPartsForInstruction(currentModel);
+            uiManager.UpdateNumberOfMovingPartsForInstruction(numberOfMovingPartsForInstruction);
         } else
         {
             Debug.LogError("Cannot Load Instructions - Instructions Not Found in Folder: " + InstructionFolderName,gameObject);
@@ -80,5 +86,26 @@ public class ARSessionManager : MonoBehaviour
         currentModel.transform.position = currentTransform.position;
         currentModel.transform.localScale = currentTransform.localScale;
         currentModel.transform.rotation = currentTransform.rotation;
+        int numberOfMovingPartsForInstruction = getNumberOfMovingPartsForInstruction(currentModel);
+        uiManager.UpdateNumberOfMovingPartsForInstruction(numberOfMovingPartsForInstruction);
+    }
+
+    private int getNumberOfMovingPartsForInstruction(GameObject currentModel)
+    {
+        int numberOfMovingPartsForInstruction = 0;
+        foreach(Transform part in currentModel.transform)
+        {
+            InstructionPieceMovement movementScript = part.GetComponent<InstructionPieceMovement>();
+            if (movementScript != null)
+            {
+                numberOfMovingPartsForInstruction++;
+            }
+            
+            if(part.childCount > 0)
+            {
+                numberOfMovingPartsForInstruction += getNumberOfMovingPartsForInstruction(part.gameObject);
+            }
+        }
+        return numberOfMovingPartsForInstruction;
     }
 }

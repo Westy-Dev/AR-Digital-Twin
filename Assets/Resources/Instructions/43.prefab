@@ -47,7 +47,7 @@ MonoBehaviour:
   speed: 1.2
   distance: -0.5
   highlight: 1
-  direction: 0
+  direction: 1
 --- !u!1001 &8621041825299891526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 7901563169811048254, guid: d91fb429069f70a4a97c53c149678c0a,
         type: 3}
       propertyPath: m_Name
-      value: 42
+      value: 43
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2120098798, guid: d91fb429069f70a4a97c53c149678c0a, type: 3}
