@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 1052271816}
   - component: {fileID: 1052271818}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PartsInStepText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
