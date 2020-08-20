@@ -13,6 +13,8 @@ public class ARSessionManager : MonoBehaviour
     private GameObject[] modelInstructions;
     //The position to instantiate the models in the world
     public Vector3 AssemblyPosition;
+    public Transform InstructionsStartPosition;
+    private Vector3 assemblyInitialPosition;
     private Vector3 assemblyInitialScale;
     private Quaternion assemblyInitialRotation;
 
@@ -38,9 +40,10 @@ public class ARSessionManager : MonoBehaviour
         {
             lastInstructionIndex = modelInstructions.Length - 1;
 
-            currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
-            //-0.048f, -0.038f, 0.287f
-            currentModel.transform.position = AssemblyPosition;
+            currentModel = Instantiate(modelInstructions[currentInstructionIndex],InstructionsStartPosition);
+            currentModel.transform.localPosition = Vector3.zero;
+
+            assemblyInitialPosition = currentModel.transform.localPosition;
             assemblyInitialScale = currentModel.transform.localScale;
             assemblyInitialRotation = currentModel.transform.rotation;
 
@@ -73,7 +76,7 @@ public class ARSessionManager : MonoBehaviour
 
     public void resetPosition()
     {
-        currentModel.transform.localPosition = AssemblyPosition;
+        currentModel.transform.localPosition = assemblyInitialPosition;
         currentModel.transform.localScale = assemblyInitialScale;
         currentModel.transform.rotation = assemblyInitialRotation;
     }
@@ -82,8 +85,8 @@ public class ARSessionManager : MonoBehaviour
     {
         Transform currentTransform = currentModel.transform;
         Destroy(currentModel);
-        currentModel = Instantiate(modelInstructions[currentInstructionIndex]);
-        currentModel.transform.position = currentTransform.position;
+        currentModel = Instantiate(modelInstructions[currentInstructionIndex], InstructionsStartPosition);
+        currentModel.transform.localPosition = currentTransform.localPosition;
         currentModel.transform.localScale = currentTransform.localScale;
         currentModel.transform.rotation = currentTransform.rotation;
         int numberOfMovingPartsForInstruction = getNumberOfMovingPartsForInstruction(currentModel);

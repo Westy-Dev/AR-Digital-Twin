@@ -6,7 +6,7 @@ public class TouchGestureManager : MonoBehaviour
     [SerializeField]
     private Camera arCamera;
     [SerializeField]
-    private float movementSensitivity = 0.01f;
+    private float movementSensitivity = 0.001f;
     [SerializeField]
     private float rotateSensitivity = 0.1f;
     [SerializeField]
