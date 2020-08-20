@@ -12,7 +12,7 @@ public class ARSessionManager : MonoBehaviour
     public string InstructionFolderName;
     private GameObject[] modelInstructions;
     //The position to instantiate the models in the world
-    public Vector3 AssemblyPosition;
+
     public Transform InstructionsStartPosition;
     private Vector3 assemblyInitialPosition;
     private Vector3 assemblyInitialScale;
@@ -30,6 +30,7 @@ public class ARSessionManager : MonoBehaviour
 
         currentInstructionIndex = 0;
 
+        uiManager.prevButton.SetActive(false);
         // Instantiates a Prefab located in any Resources
         // folder in your project's Assets folder with the name provided in the inspector
         modelInstructions = Resources.LoadAll<GameObject>(InstructionFolderName);
@@ -47,8 +48,8 @@ public class ARSessionManager : MonoBehaviour
             assemblyInitialScale = currentModel.transform.localScale;
             assemblyInitialRotation = currentModel.transform.rotation;
 
-            int numberOfMovingPartsForInstruction = getNumberOfMovingPartsForInstruction(currentModel);
-            uiManager.UpdateNumberOfMovingPartsForInstruction(numberOfMovingPartsForInstruction);
+            updateUIText();
+            
         } else
         {
             Debug.LogError("Cannot Load Instructions - Instructions Not Found in Folder: " + InstructionFolderName,gameObject);
@@ -63,6 +64,8 @@ public class ARSessionManager : MonoBehaviour
             currentInstructionIndex++;
             loadNewModel(currentInstructionIndex);
         }
+
+        updateUIButtons();
     }
 
     public void loadPreviousInstruction()
@@ -72,6 +75,38 @@ public class ARSessionManager : MonoBehaviour
             currentInstructionIndex--;
             loadNewModel(currentInstructionIndex);
         }
+
+        updateUIButtons();
+    }
+
+    private void updateUIButtons()
+    {
+
+        if(currentInstructionIndex == 0)
+        {
+            uiManager.prevButton.SetActive(false);
+        } 
+        else if (!uiManager.prevButton.activeSelf)
+        {
+            uiManager.prevButton.SetActive(true);
+        }
+
+        if(currentInstructionIndex == lastInstructionIndex)
+        {
+            uiManager.nextButton.SetActive(false);
+        }
+        else if (!uiManager.nextButton.activeSelf)
+        {
+            uiManager.nextButton.SetActive(true);
+        }
+
+    }
+    
+    private void updateUIText()
+    {
+        int numberOfMovingPartsForInstruction = getNumberOfMovingPartsForInstruction(currentModel);
+        uiManager.UpdateNumberOfMovingPartsForInstruction(numberOfMovingPartsForInstruction);
+        uiManager.UpdateStepNumber(currentInstructionIndex + 1);
     }
 
     public void resetPosition()
@@ -89,8 +124,8 @@ public class ARSessionManager : MonoBehaviour
         currentModel.transform.localPosition = currentTransform.localPosition;
         currentModel.transform.localScale = currentTransform.localScale;
         currentModel.transform.rotation = currentTransform.rotation;
-        int numberOfMovingPartsForInstruction = getNumberOfMovingPartsForInstruction(currentModel);
-        uiManager.UpdateNumberOfMovingPartsForInstruction(numberOfMovingPartsForInstruction);
+
+        updateUIText();
     }
 
     private int getNumberOfMovingPartsForInstruction(GameObject currentModel)
