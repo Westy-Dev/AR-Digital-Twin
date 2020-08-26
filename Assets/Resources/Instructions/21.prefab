@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
-  distance: 0.5
+  distance: 0.7
   highlight: 1
   direction: 2
 --- !u!114 &186932740
@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
-  distance: 0.5
+  distance: 0.7
   highlight: 1
   direction: 2
 --- !u!114 &186932739

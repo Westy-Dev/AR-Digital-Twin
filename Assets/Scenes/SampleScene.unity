@@ -1081,6 +1081,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3824151571954451830, guid: 81016146a830d224883b778b45de7cd4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5406389491352747063, guid: 81016146a830d224883b778b45de7cd4,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1355,6 +1360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8681885473878980077, guid: 2cf4e57035aa2d144b0423731a4cb0e3,
+        type: 3}
+      propertyPath: m_settings.gesture
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8681885473884587819, guid: 2cf4e57035aa2d144b0423731a4cb0e3,
         type: 3}
       propertyPath: m_Name

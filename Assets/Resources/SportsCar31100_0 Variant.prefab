@@ -7,10 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7578326405969684316, guid: ee8f208d1208ba54981862c2ca748da0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7578326405969684316, guid: ee8f208d1208ba54981862c2ca748da0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7578326405969684316, guid: ee8f208d1208ba54981862c2ca748da0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 8314316962620557538, guid: ee8f208d1208ba54981862c2ca748da0,
         type: 3}
       propertyPath: m_Name
-      value: SportsCar31100_0
+      value: SportsCar31100_0 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8658649212901167704, guid: ee8f208d1208ba54981862c2ca748da0,
         type: 3}
