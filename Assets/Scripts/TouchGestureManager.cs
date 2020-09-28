@@ -175,15 +175,20 @@ public class TouchGestureManager : MonoBehaviour
         {
             //Rotate around the local up vector of the ar model by taking the
             //change in position of the touch movement and projecting this onto the camera's right transform
-            arModel.transform.Rotate(arModel.transform.up, -Vector3.Dot(touchRotate, Camera.main.transform.right) * rotateSensitivity, Space.World);
+            //This allows us to calculate how much of the rotation occured in the X axis
+            arModel.transform.Rotate(arModel.transform.up, -Vector3.Dot(touchRotate, Camera.main.transform.right) 
+                                    * rotateSensitivity, Space.World);
         }
         else
         {
             //If we are pointing downwards then rotate the opposite way
-            arModel.transform.Rotate(arModel.transform.up, Vector3.Dot(touchRotate, Camera.main.transform.right) * rotateSensitivity, Space.World);
+            arModel.transform.Rotate(arModel.transform.up, Vector3.Dot(touchRotate, Camera.main.transform.right) 
+                                    * rotateSensitivity, Space.World);
         }
         //Rotate around the camera's right transform by taking the change in position of the touch movement
         //and projecting this onto the camera's up transform
-        arModel.transform.Rotate(Camera.main.transform.right, Vector3.Dot(touchRotate, Camera.main.transform.up) * rotateSensitivity, Space.World);
+        //This allows us to calculate how much of the rotation occured in the Y axis
+        arModel.transform.Rotate(Camera.main.transform.right, Vector3.Dot(touchRotate, Camera.main.transform.up) 
+                                    * rotateSensitivity, Space.World);
     }
 }

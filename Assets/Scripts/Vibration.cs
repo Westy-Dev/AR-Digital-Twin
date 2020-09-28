@@ -31,7 +31,8 @@ public static class Vibration
         }
         else
         {
-            //Otherwise let Unity try and handle the device vibration using its device agnostic function
+            //Otherwise let Unity try and handle the device vibration
+            //using its device agnostic function
             Handheld.Vibrate();
         }
             
@@ -50,7 +51,8 @@ public static class Vibration
         }
         else
         {
-            //Otherwise let Unity try and handle the device vibration using its device agnostic function
+            //Otherwise let Unity try and handle the device vibration 
+            //using its device agnostic function
             //NOTE: This does not have an override for time to vibrate
             Handheld.Vibrate();
         }

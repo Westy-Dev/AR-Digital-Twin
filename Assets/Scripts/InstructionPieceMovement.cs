@@ -68,7 +68,8 @@ public class InstructionPieceMovement: MonoBehaviour
             //If we are not at the end position then gradually move to the end position
             //from the start position with the given speed
             percentageOfMovementElapsed += Time.deltaTime;
-            transform.localPosition = Vector3.Lerp(startPosition, endPosition, percentageOfMovementElapsed * speed);
+            transform.localPosition = Vector3.Lerp(startPosition, endPosition,
+                                        percentageOfMovementElapsed * speed);
         } else
         {
             //If we have reached the end position and we are not already resetting the

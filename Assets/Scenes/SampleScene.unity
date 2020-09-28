@@ -242,7 +242,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &640231399
 GameObject:
@@ -273,7 +273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &640231401
 MonoBehaviour:
@@ -780,7 +780,7 @@ Transform:
   m_LocalScale: {x: 0.33645, y: 0.33645, z: 0.33645}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1152204773 stripped
 MonoBehaviour:
@@ -835,7 +835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1598275319
 MonoBehaviour:
@@ -903,7 +903,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142885354
 GameObject:
@@ -1124,7 +1124,7 @@ PrefabInstance:
     - target: {fileID: 5406389491352747063, guid: 81016146a830d224883b778b45de7cd4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70.703
+      value: 200.1
       objectReference: {fileID: 0}
     - target: {fileID: 5406389491352747063, guid: 81016146a830d224883b778b45de7cd4,
         type: 3}
@@ -1194,7 +1194,7 @@ PrefabInstance:
     - target: {fileID: 7512027383281229418, guid: 81016146a830d224883b778b45de7cd4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7512027383281229418, guid: 81016146a830d224883b778b45de7cd4,
         type: 3}
@@ -1383,7 +1383,7 @@ PrefabInstance:
     - target: {fileID: 8681885473878980077, guid: 2cf4e57035aa2d144b0423731a4cb0e3,
         type: 3}
       propertyPath: m_settings.gesture
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8681885473884587819, guid: 2cf4e57035aa2d144b0423731a4cb0e3,
         type: 3}
@@ -1428,7 +1428,7 @@ PrefabInstance:
     - target: {fileID: 8681885473884815291, guid: 2cf4e57035aa2d144b0423731a4cb0e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8681885473884815291, guid: 2cf4e57035aa2d144b0423731a4cb0e3,
         type: 3}
@@ -1586,7 +1586,7 @@ PrefabInstance:
     - target: {fileID: 2730810117905940808, guid: ddae1506528268846a809446c55ff6be,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2730810117905940808, guid: ddae1506528268846a809446c55ff6be,
         type: 3}
