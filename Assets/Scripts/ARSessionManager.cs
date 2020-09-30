@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Created By Ben Westcott, 2020
+using System;
 using UnityEngine;
 /// <summary>
 /// Manages the position, scale, rotation and display of the <c>CurrentModel</c>
